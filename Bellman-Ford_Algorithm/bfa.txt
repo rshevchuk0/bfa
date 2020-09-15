@@ -1,0 +1,29 @@
+#include "bellmanford.h"
+
+int main(void)
+{
+	int V = 4;
+	int E = 4;
+
+	struct Graph* graph = createGraph(V, E);
+
+	graph->edge[0].src = 0;
+	graph->edge[0].dest = 1;
+	graph->edge[0].weight = 8;
+	   
+	graph->edge[1].src = 0;
+	graph->edge[1].dest = 2;
+	graph->edge[1].weight = 4;
+
+	graph->edge[2].src = 2;
+	graph->edge[2].dest = 3;
+	graph->edge[2].weight = 2;
+
+	graph->edge[3].src = 1;
+	graph->edge[3].dest = 3;
+	graph->edge[3].weight = -1;
+
+	Bellman_Ford(graph, 0);
+	
+	return 0;
+}
